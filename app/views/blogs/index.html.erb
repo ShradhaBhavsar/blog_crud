@@ -2,8 +2,16 @@
 <ul>
   <% @blogs.each do |blog| %>
     <li>
-      <%= link_to blog.name, blog %>
+      Title = <%= link_to blog.name, blog %> , 
+      Description = <%= link_to blog.description, blog %> <br>          
+      <%= link_to "Edit", edit_blog_path(blog) %> /
+      <%= link_to "Destroy", blog_path(blog), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
     </li>
+      
+   
   <% end %>
 </ul>
 
